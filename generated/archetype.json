@@ -19,10 +19,6 @@
         "location": {
           "type": "object",
           "description": "Location"
-        },
-        "income": {
-          "type": "object",
-          "description": "Income"
         }
       }
     },

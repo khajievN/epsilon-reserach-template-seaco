@@ -79,17 +79,6 @@ class Household:
                 return v
         return None
 
-    @property
-    def income(self):
-        # Try direct access first (JSON format)
-        if 'income' in self._data:
-            return self._data['income']
-        # Try flattened access (CSV format)
-        for k, v in self._data.items():
-            if k.endswith('.income'):
-                return v
-        return None
-
 
 class Health:
     def __init__(self, data):
