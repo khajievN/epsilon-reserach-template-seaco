@@ -48,54 +48,6 @@ class DatasetWrapper:
         return Root(self.records[0]) if self.records else None
 
 
-class Education:
-    def __init__(self, data):
-        self._data = data if data else {}
-
-    @property
-    def school_level(self):
-        # Try direct access first (JSON format)
-        if 'school_level' in self._data:
-            return self._data['school_level']
-        # Try flattened access (CSV format)
-        for k, v in self._data.items():
-            if k.endswith('.school_level'):
-                return v
-        return None
-
-
-class Household:
-    def __init__(self, data):
-        self._data = data if data else {}
-
-    @property
-    def location(self):
-        # Try direct access first (JSON format)
-        if 'location' in self._data:
-            return self._data['location']
-        # Try flattened access (CSV format)
-        for k, v in self._data.items():
-            if k.endswith('.location'):
-                return v
-        return None
-
-
-class Health:
-    def __init__(self, data):
-        self._data = data if data else {}
-
-    @property
-    def smoking_status(self):
-        # Try direct access first (JSON format)
-        if 'smoking_status' in self._data:
-            return self._data['smoking_status']
-        # Try flattened access (CSV format)
-        for k, v in self._data.items():
-            if k.endswith('.smoking_status'):
-                return v
-        return None
-
-
 class Demographics:
     def __init__(self, data):
         self._data = data if data else {}
@@ -131,48 +83,6 @@ class Person:
 class Root:
     def __init__(self, data):
         self._data = data if data else {}
-
-    @property
-    def education(self):
-        # Handle nested field access with dot notation
-        if 'education' in self._data and isinstance(self._data['education'], dict):
-            return Education(self._data['education'])
-        # Handle flattened CSV data
-        flattened = {}
-        prefix = 'education.'
-        for k, v in self._data.items():
-            if k.startswith(prefix):
-                nested_key = k[len(prefix):]
-                flattened[nested_key] = v
-        return Education(flattened)
-
-    @property
-    def household(self):
-        # Handle nested field access with dot notation
-        if 'household' in self._data and isinstance(self._data['household'], dict):
-            return Household(self._data['household'])
-        # Handle flattened CSV data
-        flattened = {}
-        prefix = 'household.'
-        for k, v in self._data.items():
-            if k.startswith(prefix):
-                nested_key = k[len(prefix):]
-                flattened[nested_key] = v
-        return Household(flattened)
-
-    @property
-    def health(self):
-        # Handle nested field access with dot notation
-        if 'health' in self._data and isinstance(self._data['health'], dict):
-            return Health(self._data['health'])
-        # Handle flattened CSV data
-        flattened = {}
-        prefix = 'health.'
-        for k, v in self._data.items():
-            if k.startswith(prefix):
-                nested_key = k[len(prefix):]
-                flattened[nested_key] = v
-        return Health(flattened)
 
     @property
     def demographics(self):

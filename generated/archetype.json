@@ -4,33 +4,6 @@
   "title": "seaco",
   "type": "object",
   "properties": {
-    "education": {
-      "type": "object",
-      "properties": {
-        "school_level": {
-          "type": "object",
-          "description": "School Level"
-        }
-      }
-    },
-    "household": {
-      "type": "object",
-      "properties": {
-        "location": {
-          "type": "object",
-          "description": "Location"
-        }
-      }
-    },
-    "health": {
-      "type": "object",
-      "properties": {
-        "smoking_status": {
-          "type": "object",
-          "description": "Smoking Status"
-        }
-      }
-    },
     "demographics": {
       "type": "object",
       "properties": {
