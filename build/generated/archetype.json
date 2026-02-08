@@ -1,0 +1,56 @@
+{
+  "$id": "a7702e2d-69dd-4543-b3b6-a6df21d287c9/CiLIPmOxVjhi",
+  "$schema": "https://json-schema.org/draft/2020-12/schema#",
+  "title": "seaco",
+  "type": "object",
+  "properties": {
+    "education": {
+      "type": "object",
+      "properties": {
+        "school_level": {
+          "type": "object",
+          "description": "School Level"
+        }
+      }
+    },
+    "household": {
+      "type": "object",
+      "properties": {
+        "location": {
+          "type": "object",
+          "description": "Location"
+        },
+        "income": {
+          "type": "object",
+          "description": "Income"
+        }
+      }
+    },
+    "health": {
+      "type": "object",
+      "properties": {
+        "smoking_status": {
+          "type": "object",
+          "description": "Smoking Status"
+        }
+      }
+    },
+    "demographics": {
+      "type": "object",
+      "properties": {
+        "gender": {
+          "type": "integer",
+          "description": "Gender"
+        },
+        "dob": {
+          "type": "string",
+          "description": "DOB"
+        }
+      }
+    },
+    "person": {
+      "type": "object",
+      "properties": {}
+    }
+  }
+}
