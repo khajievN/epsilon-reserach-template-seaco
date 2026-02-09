@@ -11,8 +11,6 @@ def main():
     return {
         "total_records": len(records),
         "gender_distribution": dict(genders),
-        "dob_sample_count": len(dobs),
-        "unique_genders": len(genders)
     }
 
 if __name__ == "__main__":
